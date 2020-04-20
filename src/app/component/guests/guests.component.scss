@@ -1,0 +1,229 @@
+@import "../../../assets/styles/media";
+
+.hf-guests {
+  &_wrap {
+    position: relative;
+    @media (min-width: 768px) and (max-width: 992px) {
+      border-left: 1px solid lightgrey;
+    }
+    & .visible-hotel {
+      display: none;
+    }
+    & .unvisible-hotel-label {
+      display: block;
+    }
+    @include lg {
+      .hf-guests_field .unvisible-hotel-label {
+        margin-top: 6px;
+      }
+    }
+  }
+
+  &_field {
+    position: relative;
+    min-height: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 30px 5px 10px;
+    width: 100%;
+    user-select: none;
+    border: 1px solid transparent;
+    border-bottom: 3px solid transparent;
+
+    &:after {
+      content: "";
+      border: solid #50627e;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      right: 8px;
+      position: absolute;
+
+      @include xs-max {
+        display: none;
+      }
+    }
+  }
+
+  &_placeholder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &_prefix {
+    color: #2b2b2b;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  &_list {
+    position: absolute;
+    background-color: white;
+    user-select: none;
+    min-width: 100%;
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.1);
+    -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+    right: auto;
+
+    @media (min-width: 992px) {
+      margin-top: 20px;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background: white;
+      width: 10px;
+      left: 12px;
+      top: -5px;
+      height: 10px;
+      transform: rotate(135deg);
+      z-index: 9998;
+    }
+  }
+
+  &_people {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 300;
+    font-size: 14px;
+    height: auto !important;
+    color: #2b2b2b;
+    justify-content: space-between;
+    @media (min-width: 1280px) {
+      height: 50px;
+      font-size: 16px;
+    }
+
+    &.form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      form {
+        width: 100%;
+
+        .panel-heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .input-child {
+            display: flex;
+
+            input {
+              height: 24px;
+              width: 66px;
+              border: 1px solid #e4e8ef;
+              border-radius: 2px;
+              color: #586a83;
+              text-align: center;
+              margin-right: 10px;
+              font-size: 16px;
+              font-weight: 300;
+              line-height: 21px;
+            }
+          }
+
+          .cross {
+            color: #26ade4;
+          }
+        }
+      }
+    }
+  }
+
+  &_people-maturity {
+    margin-right: 20px;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  &_people-minus {
+    margin-right: 10px;
+  }
+
+  &_people-plus {
+    margin-left: 10px;
+  }
+
+  &_people-minus,
+  &_people-plus {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #E4E8EF;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &_people-counter {
+    width: 10px;
+    margin: 0 5px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.label-add-child {
+  color: #26ade4;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 21px;
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .hf-guests_wrap .hf-guests_field .unvisible-hotel-label {
+      margin-top: 0;
+    }
+  }
+}
+
+.short-search {
+  border-left: 0;
+
+  &_tips {
+    background-color: white;
+    margin-top: 5px !important;
+    left: -34px;
+
+    @include xs-max {
+      left: -11px;
+      right: unset;
+    }
+  }
+}
+
+.picker-wrap {
+  @include xs-max {
+    display: block !important;
+    border: 0;
+    min-height: 38px;
+    height: 38px;
+    padding: 7px;
+  }
+
+  @media screen and (max-width: 375px) {
+    padding: 7px 1px;
+  }
+}

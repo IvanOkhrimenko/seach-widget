@@ -1,0 +1,58 @@
+// import { GlobalState } from './global.state';
+import { ShoppingCartState } from './shopping-cart.state';
+import { AuthorizationState } from './authorization.state';
+import { HfRouterState } from './hf-router.state';
+import { MyTripsState } from './my-trips.state';
+import { RoomsState } from './rooms.state';
+// import { DealsState } from './deals.state';
+// import { SearchDealsState } from './search-deal.state';
+// import { CategoriesState } from './categories.state';
+// import { CareersState } from './careers.state';
+import { StaticPagesState } from './static-pages.state';
+import { FilterState } from './filter.state';
+import { ScreenState } from './screen.state';
+import { TagsState } from './tags.state';
+import { TopDealsState } from './top-deals.state';
+// import { HotelStarsState } from './hotel-stars.state';
+// import { FacilitiesState } from './facilities.state';
+// import { CitiesState } from './cities.state';
+// import { GoogleRatingState } from './google-rating.state';
+// import { HeaderState } from './header.state';
+// import { MyTripsDealsState } from './my-trips-deals.state';
+import { EventsState } from './events.state';
+// import { PricingState } from './pricing.state.';
+// import { TourTagsState } from './tour-tags.state';
+// import { MyTripsToursState } from './my-trips-tours.state';
+import { NavMenuState } from './nav-menu.state';
+import { MyTripsRoomsState } from './my-trips-rooms.state';
+
+
+export interface ApplicationState {
+  // globalState: GlobalState;
+  filterState: FilterState;
+  routerState: HfRouterState;
+  shoppingCartState: ShoppingCartState;
+  authorizationState: AuthorizationState;
+  myTripsState: MyTripsState;
+  roomsState: RoomsState;
+  // dealsState: DealsState;
+  // searchDealsState: SearchDealsState;
+  // categoriesState: CategoriesState;
+  // careersState: CareersState;
+  staticPagesState: StaticPagesState;
+  screen: ScreenState;
+  tagsState: TagsState;
+  topDealsState: TopDealsState;
+  // hotelStarsState: HotelStarsState;
+  // facilitiesState: FacilitiesState;
+  // citiesState: CitiesState;
+  // googleRatingState: GoogleRatingState;
+  // headerState: HeaderState;
+  // myTripsDealsState: MyTripsDealsState;
+  // myTripsToursState: MyTripsToursState;
+  myTripsRoomsState: MyTripsRoomsState;
+  eventsReducer: EventsState;
+  // pricingState: PricingState;
+  // tourTagsState: TourTagsState;
+  navMenuState: NavMenuState;
+}

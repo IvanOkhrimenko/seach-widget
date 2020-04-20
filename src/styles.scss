@@ -1,0 +1,1859 @@
+@import "./assets/styles/media";
+@import './assets/styles/_hf-atomic';
+
+@font-face {
+  //font-display: swap;
+  font-family: 'Glyphter, Roboto, Helvetica';
+  src: url('/assets/fonts/Glyphter/Glyphter.eot');
+  src: url('/assets/fonts/Glyphter/Glyphter.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/Glyphter/Glyphter.woff') format('woff'),
+  url('/assets/fonts/Glyphter/Glyphter.ttf') format('truetype'),
+  url('/assets/fonts/Glyphter/Glyphter.svg#Glyphter') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'Glyphter', Roboto
+}
+
+$container-xs: 100%;
+$container-sm: 520px;
+$container-md: 700px;
+$container-lg: 900px;
+$container-xl: 1200px;
+
+@mixin container-products {
+  width: 100%;
+  max-width: none;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+  margin-right: auto;
+  margin-left: auto;
+}
+@mixin container-fluid {
+  width: 100%;
+  max-width: none;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+  margin-right: auto;
+  margin-left: auto;
+}
+@mixin no-margin {
+  margin-right: 0;
+  margin-left: 0;
+}
+@mixin no-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+@mixin col-base {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
+@mixin col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+@mixin col-auto {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+@mixin col-1 {
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
+@mixin col-2 {
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+@mixin col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+@mixin col-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+@mixin col-5 {
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+@mixin col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+@mixin col-7 {
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+@mixin col-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+@mixin col-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+@mixin col-10 {
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+@mixin col-11 {
+  flex: 0 0 91.666667%;
+  max-width: 91.666667%;
+}
+@mixin col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@mixin order-first {
+  order: -1;
+}
+@mixin order-last {
+  order: 13;
+}
+@mixin order-0 {
+  order: 0;
+}
+@mixin order-1 {
+  order: 1;
+}
+@mixin order-2 {
+  order: 2;
+}
+@mixin order-3 {
+  order: 3;
+}
+@mixin order-4 {
+  order: 4;
+}
+@mixin order-5 {
+  order: 5;
+}
+@mixin order-6 {
+  order: 6;
+}
+@mixin order-7 {
+  order: 7;
+}
+@mixin order-8 {
+  order: 8;
+}
+@mixin order-9 {
+  order: 9;
+}
+@mixin order-10 {
+  order: 10;
+}
+@mixin order-11 {
+  order: 11;
+}
+@mixin order-12 {
+  order: 12;
+}
+@mixin offset-1 {
+  margin-left: 8.333333%;
+}
+@mixin offset-2 {
+  margin-left: 16.666667%;
+}
+@mixin offset-3 {
+  margin-left: 25%;
+}
+@mixin offset-4 {
+  margin-left: 33.333333%;
+}
+@mixin offset-5 {
+  margin-left: 41.666667%;
+}
+@mixin offset-6 {
+  margin-left: 50%;
+}
+@mixin offset-7 {
+  margin-left: 58.333333%;
+}
+@mixin offset-8 {
+  margin-left: 66.666667%;
+}
+@mixin offset-9 {
+  margin-left: 75%;
+}
+@mixin offset-10 {
+  margin-left: 83.333333%;
+}
+@mixin offset-11 {
+  margin-left: 91.666667%;
+}
+@mixin offset-0 {
+  margin-left: 0;
+}
+@mixin display-flex {
+  display: flex !important;
+}
+@mixin display-none {
+  display: none !important;
+}
+@mixin justify-content-between {
+  justify-content: space-between !important;
+}
+
+$lightBlue: #26ADE4;
+$hardBlue: #66BAE1;
+$darkBlue: #50627E;
+$lightGrey: #F4F8FD;
+$primaryGreen: #2EC98F;
+$grey: #E4E8EF;
+$darkGrey: #AEBCCF;
+$darkGreyOpacity: rgba(174, 188, 207, 0.5);
+$greyBlue: #7E8EA6;
+$greenHight: #20CE6D;
+$green: #59B59D;
+$hardOrange: #FF9C00;
+$orange: #FFBD5A;
+$orangeDark: rgba(194, 150, 97, 1);
+$red: #EA6565;
+$pinkRed: #DF4136;
+$darRed: #FF5757 ;
+$purple: #745EC5;
+$black: #3A3A3A;
+$white: #ffffff;
+$mediumGrey: #E4EBF2;
+$mediumBlue: #7F8FA4;
+$greenMed: #04CA8E;
+$softBlue: #7bc8f5;
+$lightGrayGreen: #F9F9FB;
+$hover: #33B2E4;
+$ultraGreen: #E88224;
+$middleGreen: rgba(109,120,137,0.8);
+$lightBtnGreen: #16CC8E;
+$deepRed: #EA0505;
+$ultraLightGreen: #e7f9f3;
+$tagGreyColor: #28C2C8;
+$normalGreen: #04CA8E;
+$deepGreen: rgba(4,202,142,0.5);
+$deepDarkBlue: #13264A;
+$baseText: #2B2B2B;
+$ultraLightBlue: #F9F9FB;
+$linkColor: #15ACE6;
+$darkDeepBlue: #323E5A;
+$productShadow: 0 12px 15px 0 rgba(46,176,229,0.05),
+0 12px 15px 0 rgba(214,214,214,0.14);
+@mixin mainfont {
+  font-family: 'Glyphter';
+}
+
+@mixin mf-thin {
+  @include mainfont;
+  font-weight: 100;
+}
+
+@mixin mf-light  {
+  @include mainfont;
+  font-weight: 300;
+}
+
+@mixin mf-regular {
+  @include mainfont;
+  font-weight: 400;
+}
+
+@mixin mf-medium {
+  @include mainfont;
+  font-weight: 500;
+}
+
+@mixin mf-bold {
+  @include mainfont;
+  font-weight: 700;
+}
+
+[class*='icon-']:before {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Glyphter';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.icon-marketplace:before {
+  content: '\0041';
+}
+
+.icon-Edit:before {
+  content: '\0042';
+}
+
+.icon-hotel:before {
+  content: '\0044';
+}
+
+.icon-left:before {
+  content: '\0045';
+}
+
+.icon-carts-button:before {
+  content: '\0047';
+}
+
+.icon-map-button:before {
+  content: '\0048';
+}
+
+.icon-close_modal:before {
+  content: '\004a';
+}
+
+.icon-arrow-right-button:before {
+  content: '\004b';
+}
+
+.icon-plus:before {
+  content: '\004d';
+}
+
+.icon-minus:before {
+  content: '\004e';
+}
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1280px;
+$xxl: 1305px;
+
+$xs-max: $sm - .02px;
+$sm-max: $md - .02px;
+$md-max: $lg - .02px;
+$lg-max: $xl - .02px;
+$xxl-max: $xxl - .02px;
+
+$gutter: 20px;
+
+// The maximum value is calculated as the minimum of the next one less 0.02px to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+
+@mixin xs-max {
+  @media (max-width: #{$xs-max}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{$sm}) {
+    @content;
+  }
+}
+@mixin sm-max {
+  @media (max-width: #{$sm-max}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$md}) {
+    @content;
+  }
+}
+@mixin md-max {
+  @media (max-width: #{$md-max}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$lg}) {
+    @content;
+  }
+}
+@mixin lg-max {
+  @media (max-width: #{$lg-max}) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: #{$xxl-max}) {
+    @content;
+  }
+}
+@mixin xxl-max {
+  @media (max-width: #{$xxl-max}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{$xl}) {
+    @content;
+  }
+}
+@mixin xl-max {
+  @media (max-width: #{$xl}) {
+    @content;
+  }
+}
+@mixin xs-only {
+  @include xs-max {
+    @content;
+  }
+}
+@mixin sm-only {
+  @include sm {
+    @include sm-max {
+      @content;
+    }
+  }
+}
+@mixin md-only {
+  @include md {
+    @include md-max {
+      @content;
+    }
+  }
+}
+@mixin lg-only {
+  @include lg {
+    @include lg-max {
+      @content;
+    }
+  }
+}
+@mixin xl-only {
+  @include xl {
+    @content;
+  }
+}
+
+.async-hide {
+  opacity: 0 !important
+}
+
+div#pageloaddiv {
+  visibility: visible !important;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, .95);
+}
+
+div#pageloaddiv:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  background-image: url(/assets/mainimages/pre-loader.gif);
+}
+
+.container {
+  width: $container-xs;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include sm {
+    max-width: $container-sm;
+  }
+  @include md {
+    max-width: $container-md;
+  }
+  @include lg {
+    max-width: $container-lg;
+  }
+  @include xl {
+    max-width: $container-xl;
+  }
+}
+
+
+.container-fluid {
+  @include container-fluid;
+
+  @include xs-only {
+    &-xs {
+      @include container-fluid;
+    }
+  }
+  @include sm-only {
+    &-sm {
+      @include container-fluid;
+    }
+  }
+  @include md-only {
+    &-md {
+      @include container-fluid;
+    }
+  }
+  @include lg-only {
+    &-lg {
+      @include container-fluid;
+    }
+  }
+  @include xl-only {
+    &-xl {
+      @include container-fluid;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$gutter / 2;
+  margin-left: -$gutter / 2;
+}
+
+.col, .col-auto, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+.col-sm, .col-sm-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md, .col-md-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg, .col-lg-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl, .col-xl-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+  @include col-base;
+}
+
+.col {
+  @include col;
+
+  &-auto {
+    @include col-auto;
+  }
+  &-1 {
+    @include col-1;
+  }
+  &-2 {
+    @include col-2;
+  }
+  &-3 {
+    @include col-3;
+  }
+  &-4 {
+    @include col-4;
+  }
+  &-5 {
+    @include col-5;
+  }
+  &-6 {
+    @include col-6;
+  }
+  &-7 {
+    @include col-7;
+  }
+  &-8 {
+    @include col-8;
+  }
+  &-9 {
+    @include col-9;
+  }
+  &-10 {
+    @include col-10;
+  }
+  &-11 {
+    @include col-11;
+  }
+  &-12 {
+    @include col-12;
+  }
+
+  @include sm {
+    &-sm {
+      @include col;
+
+      &-auto {
+        @include col-auto;
+      }
+      &-1 {
+        @include col-1;
+      }
+      &-2 {
+        @include col-2;
+      }
+      &-3 {
+        @include col-3;
+      }
+      &-4 {
+        @include col-4;
+      }
+      &-5 {
+        @include col-5;
+      }
+      &-6 {
+        @include col-6;
+      }
+      &-7 {
+        @include col-7;
+      }
+      &-8 {
+        @include col-8;
+      }
+      &-9 {
+        @include col-9;
+      }
+      &-10 {
+        @include col-10;
+      }
+      &-11 {
+        @include col-11;
+      }
+      &-12 {
+        @include col-12;
+      }
+    }
+  }
+
+  @include md {
+    &-md {
+      @include col;
+
+      &-auto {
+        @include col-auto;
+      }
+      &-1 {
+        @include col-1;
+      }
+      &-2 {
+        @include col-2;
+      }
+      &-3 {
+        @include col-3;
+      }
+      &-4 {
+        @include col-4;
+      }
+      &-5 {
+        @include col-5;
+      }
+      &-6 {
+        @include col-6;
+      }
+      &-7 {
+        @include col-7;
+      }
+      &-8 {
+        @include col-8;
+      }
+      &-9 {
+        @include col-9;
+      }
+      &-10 {
+        @include col-10;
+      }
+      &-11 {
+        @include col-11;
+      }
+      &-12 {
+        @include col-12;
+      }
+    }
+  }
+
+  @include lg {
+    &-lg {
+      @include col;
+
+      &-auto {
+        @include col-auto;
+      }
+      &-1 {
+        @include col-1;
+      }
+      &-2 {
+        @include col-2;
+      }
+      &-3 {
+        @include col-3;
+      }
+      &-4 {
+        @include col-4;
+      }
+      &-5 {
+        @include col-5;
+      }
+      &-6 {
+        @include col-6;
+      }
+      &-7 {
+        @include col-7;
+      }
+      &-8 {
+        @include col-8;
+      }
+      &-9 {
+        @include col-9;
+      }
+      &-10 {
+        @include col-10;
+      }
+      &-11 {
+        @include col-11;
+      }
+      &-12 {
+        @include col-12;
+      }
+    }
+  }
+
+  @include xl {
+    &-xl {
+      @include col;
+
+      &-auto {
+        @include col-auto;
+      }
+      &-1 {
+        @include col-1;
+      }
+      &-2 {
+        @include col-2;
+      }
+      &-3 {
+        @include col-3;
+      }
+      &-4 {
+        @include col-4;
+      }
+      &-5 {
+        @include col-5;
+      }
+      &-6 {
+        @include col-6;
+      }
+      &-7 {
+        @include col-7;
+      }
+      &-8 {
+        @include col-8;
+      }
+      &-9 {
+        @include col-9;
+      }
+      &-10 {
+        @include col-10;
+      }
+      &-11 {
+        @include col-11;
+      }
+      &-12 {
+        @include col-12;
+      }
+    }
+  }
+
+  @include xs-max {
+    &-xs {
+      @include col;
+
+      &-auto {
+        @include col-auto;
+      }
+      &-1 {
+        @include col-1;
+      }
+      &-2 {
+        @include col-2;
+      }
+      &-3 {
+        @include col-3;
+      }
+      &-4 {
+        @include col-4;
+      }
+      &-5 {
+        @include col-5;
+      }
+      &-6 {
+        @include col-6;
+      }
+      &-7 {
+        @include col-7;
+      }
+      &-8 {
+        @include col-8;
+      }
+      &-9 {
+        @include col-9;
+      }
+      &-10 {
+        @include col-10;
+      }
+      &-11 {
+        @include col-11;
+      }
+      &-12 {
+        @include col-12;
+      }
+    }
+  }
+}
+
+.order {
+  &-first {
+    @include order-first;
+  }
+  &-last {
+    @include order-last;
+  }
+  &-0 {
+    @include order-0;
+  }
+  &-1 {
+    @include order-1;
+  }
+  &-2 {
+    @include order-2;
+  }
+  &-3 {
+    @include order-3;
+  }
+  &-4 {
+    @include order-4;
+  }
+  &-5 {
+    @include order-5;
+  }
+  &-6 {
+    @include order-6;
+  }
+  &-7 {
+    @include order-7;
+  }
+  &-8 {
+    @include order-8;
+  }
+  &-9 {
+    @include order-9;
+  }
+  &-10 {
+    @include order-10;
+  }
+  &-11 {
+    @include order-11;
+  }
+  &-12 {
+    @include order-12;
+  }
+
+  @include sm {
+    &-sm {
+      &-first {
+        @include order-first;
+      }
+      &-last {
+        @include order-last;
+      }
+      &-0 {
+        @include order-0;
+      }
+      &-1 {
+        @include order-1;
+      }
+      &-2 {
+        @include order-2;
+      }
+      &-3 {
+        @include order-3;
+      }
+      &-4 {
+        @include order-4;
+      }
+      &-5 {
+        @include order-5;
+      }
+      &-6 {
+        @include order-6;
+      }
+      &-7 {
+        @include order-7;
+      }
+      &-8 {
+        @include order-8;
+      }
+      &-9 {
+        @include order-9;
+      }
+      &-10 {
+        @include order-10;
+      }
+      &-11 {
+        @include order-11;
+      }
+      &-12 {
+        @include order-12;
+      }
+    }
+  }
+
+  @include md {
+    &-md {
+      &-first {
+        @include order-first;
+      }
+      &-last {
+        @include order-last;
+      }
+      &-0 {
+        @include order-0;
+      }
+      &-1 {
+        @include order-1;
+      }
+      &-2 {
+        @include order-2;
+      }
+      &-3 {
+        @include order-3;
+      }
+      &-4 {
+        @include order-4;
+      }
+      &-5 {
+        @include order-5;
+      }
+      &-6 {
+        @include order-6;
+      }
+      &-7 {
+        @include order-7;
+      }
+      &-8 {
+        @include order-8;
+      }
+      &-9 {
+        @include order-9;
+      }
+      &-10 {
+        @include order-10;
+      }
+      &-11 {
+        @include order-11;
+      }
+      &-12 {
+        @include order-12;
+      }
+    }
+  }
+
+  @include lg {
+    &-lg {
+      &-first {
+        @include order-first;
+      }
+      &-last {
+        @include order-last;
+      }
+      &-0 {
+        @include order-0;
+      }
+      &-1 {
+        @include order-1;
+      }
+      &-2 {
+        @include order-2;
+      }
+      &-3 {
+        @include order-3;
+      }
+      &-4 {
+        @include order-4;
+      }
+      &-5 {
+        @include order-5;
+      }
+      &-6 {
+        @include order-6;
+      }
+      &-7 {
+        @include order-7;
+      }
+      &-8 {
+        @include order-8;
+      }
+      &-9 {
+        @include order-9;
+      }
+      &-10 {
+        @include order-10;
+      }
+      &-11 {
+        @include order-11;
+      }
+      &-12 {
+        @include order-12;
+      }
+    }
+  }
+
+  @include xl {
+    &-xl {
+      &-first {
+        @include order-first;
+      }
+      &-last {
+        @include order-last;
+      }
+      &-0 {
+        @include order-0;
+      }
+      &-1 {
+        @include order-1;
+      }
+      &-2 {
+        @include order-2;
+      }
+      &-3 {
+        @include order-3;
+      }
+      &-4 {
+        @include order-4;
+      }
+      &-5 {
+        @include order-5;
+      }
+      &-6 {
+        @include order-6;
+      }
+      &-7 {
+        @include order-7;
+      }
+      &-8 {
+        @include order-8;
+      }
+      &-9 {
+        @include order-9;
+      }
+      &-10 {
+        @include order-10;
+      }
+      &-11 {
+        @include order-11;
+      }
+      &-12 {
+        @include order-12;
+      }
+    }
+  }
+
+  @include xs-max {
+    &-xs {
+      &-first {
+        @include order-first;
+      }
+      &-last {
+        @include order-last;
+      }
+      &-0 {
+        @include order-0;
+      }
+      &-1 {
+        @include order-1;
+      }
+      &-2 {
+        @include order-2;
+      }
+      &-3 {
+        @include order-3;
+      }
+      &-4 {
+        @include order-4;
+      }
+      &-5 {
+        @include order-5;
+      }
+      &-6 {
+        @include order-6;
+      }
+      &-7 {
+        @include order-7;
+      }
+      &-8 {
+        @include order-8;
+      }
+      &-9 {
+        @include order-9;
+      }
+      &-10 {
+        @include order-10;
+      }
+      &-11 {
+        @include order-11;
+      }
+      &-12 {
+        @include order-12;
+      }
+    }
+  }
+}
+
+.offset {
+  &-1 {
+    @include offset-1;
+  }
+  &-2 {
+    @include offset-2;
+  }
+  &-3 {
+    @include offset-3;
+  }
+  &-4 {
+    @include offset-4;
+  }
+  &-5 {
+    @include offset-5;
+  }
+  &-6 {
+    @include offset-6;
+  }
+  &-7 {
+    @include offset-7;
+  }
+  &-8 {
+    @include offset-8;
+  }
+  &-9 {
+    @include offset-9;
+  }
+  &-10 {
+    @include offset-10;
+  }
+  &-11 {
+    @include offset-11;
+  }
+
+  @include sm {
+    &-sm {
+      &-0 {
+        @include offset-0;
+      }
+      &-1 {
+        @include offset-1;
+      }
+      &-2 {
+        @include offset-2;
+      }
+      &-3 {
+        @include offset-3;
+      }
+      &-4 {
+        @include offset-4;
+      }
+      &-5 {
+        @include offset-5;
+      }
+      &-6 {
+        @include offset-6;
+      }
+      &-7 {
+        @include offset-7;
+      }
+      &-8 {
+        @include offset-8;
+      }
+      &-9 {
+        @include offset-9;
+      }
+      &-10 {
+        @include offset-10;
+      }
+      &-11 {
+        @include offset-11;
+      }
+    }
+  }
+
+  @include md {
+    &-md {
+      &-0 {
+        @include offset-0;
+      }
+      &-1 {
+        @include offset-1;
+      }
+      &-2 {
+        @include offset-2;
+      }
+      &-3 {
+        @include offset-3;
+      }
+      &-4 {
+        @include offset-4;
+      }
+      &-5 {
+        @include offset-5;
+      }
+      &-6 {
+        @include offset-6;
+      }
+      &-7 {
+        @include offset-7;
+      }
+      &-8 {
+        @include offset-8;
+      }
+      &-9 {
+        @include offset-9;
+      }
+      &-10 {
+        @include offset-10;
+      }
+      &-11 {
+        @include offset-11;
+      }
+    }
+  }
+
+  @include lg {
+    &-lg {
+      &-0 {
+        @include offset-0;
+      }
+      &-1 {
+        margin-left: 8.333333% !important;
+      }
+      &-2 {
+        @include offset-2;
+      }
+      &-3 {
+        margin-left: 25% !important;
+      }
+      &-4 {
+        @include offset-4;
+      }
+      &-5 {
+        @include offset-5;
+      }
+      &-6 {
+        @include offset-6;
+      }
+      &-7 {
+        @include offset-7;
+      }
+      &-8 {
+        @include offset-8;
+      }
+      &-9 {
+        @include offset-9;
+      }
+      &-10 {
+        @include offset-10;
+      }
+      &-11 {
+        @include offset-11;
+      }
+    }
+  }
+
+  @include xl {
+    &-xl {
+      &-0 {
+        @include offset-0;
+      }
+      &-1 {
+        @include offset-1;
+      }
+      &-2 {
+        @include offset-2;
+      }
+      &-3 {
+        @include offset-3;
+      }
+      &-4 {
+        @include offset-4;
+      }
+      &-5 {
+        @include offset-5;
+      }
+      &-6 {
+        @include offset-6;
+      }
+      &-7 {
+        @include offset-7;
+      }
+      &-8 {
+        @include offset-8;
+      }
+      &-9 {
+        @include offset-9;
+      }
+      &-10 {
+        @include offset-10;
+      }
+      &-11 {
+        @include offset-11;
+      }
+    }
+  }
+
+  @include xs-max {
+    &-xs {
+      &-0 {
+        @include offset-0;
+      }
+      &-1 {
+        @include offset-1;
+      }
+      &-2 {
+        @include offset-2;
+      }
+      &-3 {
+        @include offset-3;
+      }
+      &-4 {
+        @include offset-4;
+      }
+      &-5 {
+        @include offset-5;
+      }
+      &-6 {
+        @include offset-6;
+      }
+      &-7 {
+        @include offset-7;
+      }
+      &-8 {
+        @include offset-8;
+      }
+      &-9 {
+        @include offset-9;
+      }
+      &-10 {
+        @include offset-10;
+      }
+      &-11 {
+        @include offset-11;
+      }
+    }
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d {
+  &-none {
+    @include display-none;
+
+    @include xs-only {
+      &-xs {
+        @include display-none;
+      }
+    }
+    @include sm-only {
+      &-sm {
+        @include display-none;
+      }
+    }
+    @include md-only {
+      &-md {
+        @include display-none;
+      }
+    }
+    @include lg-only {
+      &-lg {
+        @include display-none;
+      }
+    }
+    @include xl-only {
+      &-xl {
+        @include display-none;
+      }
+    }
+  }
+}
+
+.no-gutters {
+  @include no-padding;
+
+  &.row {
+    @include no-margin;
+  }
+
+  @include xs-only {
+    &-xs {
+      @include no-padding;
+
+      &.row {
+        @include no-margin;
+      }
+    }
+  }
+  @include sm-only {
+    &-sm {
+      @include no-padding;
+
+      &.row {
+        @include no-margin;
+      }
+    }
+  }
+  @include md-only {
+    &-md {
+      @include no-padding;
+
+      &.row {
+        @include no-margin;
+      }
+    }
+  }
+  @include lg-only {
+    &-lg {
+      @include no-padding;
+
+      &.row {
+        @include no-margin;
+      }
+    }
+  }
+  @include xl-only {
+    &-xl {
+      @include no-padding;
+
+      &.row {
+        @include no-margin;
+      }
+    }
+  }
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-top {
+  justify-content: flex-start;
+}
+
+.justify-content-between {
+  @include justify-content-between;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-bottom {
+  align-self: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.col-custom-padding {
+  @include no-padding;
+
+  &-left {
+    padding-left: 0;
+
+    @include md-max {
+      padding-left: 10px;
+    }
+  }
+
+  &-right {
+    padding-right: 0;
+
+    @include md-max {
+      padding-right: 10px;
+    }
+  }
+}
+
+.md {
+  &-show {
+    display: none;
+
+    @include md-max {
+      display: block;
+    }
+  }
+
+  &-hide {
+    display: block;
+
+    @include md-max {
+      display: none;
+    }
+  }
+}
+
+html,
+body {
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  @include mf-bold;
+  font-size: 32px;
+}
+
+h2 {
+  @include mf-bold;
+  font-size: 28px;
+}
+
+h3 {
+  @include mf-bold;
+  font-size: 24px;
+}
+
+h4 {
+  @include mf-bold;
+  font-size: 22px;
+}
+
+h5 {
+  @include mf-bold;
+  font-size: 20px;
+}
+
+h6 {
+  @include mf-bold;
+  font-size: 18px;
+}
+
+strong {
+  @include mf-bold;
+}
+
+.p1 {
+  @include mf-light;
+  font-size: 18px;
+  color: $black;
+  line-height: 1.6;
+}
+
+.p2 {
+  @include mf-light;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.title.type-1 {
+  @include mf-bold;
+  font-size: 32px;
+}
+
+.breadcrumb {
+  background: none;
+
+}
+
+.grey-text-bg {
+  @include mf-regular;
+  font-size: 20px;
+  color: $darkBlue;
+  padding: 30px 40px 10px 40px;
+  position: relative;
+  background-color: rgba(123, 200, 245, 0.1);
+  line-height: 35px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  border-left: none;
+}
+
+.validation-message {
+  background-color: rgba(234, 101, 101, 0.1);
+  color: $red;
+  @include mf-medium;
+  font-size: 12px;
+  line-height: 23px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.validation-board {
+  border: 2px solid $red;
+}
+
+.card {
+  .hotel-info {
+    .price.hotel-card-price {
+      span {
+        @include mf-medium;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.col-md-5, .col-md-6, .col-md-12, .col-sm-12, .col-sm-6, .col-sm-5, .col-lg-12, .col-lg-6, .col-lg-5, .col-xl-5, .col-xl-6, .col-xl-12, .row {
+  margin: 0 !important;
+}
+
+.smallButton, .bigButton, .bigButton:disabled:hover, .inlineButton:hover {
+  background-color: $lightBlue;
+  color: $white;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.smallButton:hover, .bigButton:hover {
+  border: 1px solid $lightBlue;
+  background-color: $white;
+  color: $lightBlue;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.smallButton:active, .bigButton:active {
+  border: 1px solid #66BAE1;
+  color: #66BAE1;
+  background-color: $white;
+  box-shadow: none;
+}
+
+.smallButton:disabled, .bigButton:disabled {
+  opacity: .6;
+  box-shadow: none;
+}
+
+.smallButton:disabled:hover {
+  background: $lightBlue;
+  color: $white;
+  box-shadow: none;
+  cursor: default;
+  opacity: .6;
+}
+
+.smallButton:focus, .bigButton:focus,
+.inlineButton:focus, .breadCrumpsButton:focus {
+  outline: none;
+}
+
+.smallButton {
+  height: 34px;
+  width: 150px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.arrowLeftButton {
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: $lightBlue;
+  box-shadow: 0 1px 4px 0 rgba(43, 59, 93, 0.18);
+  cursor: pointer;
+  transition: 0.5s;
+  background: $white;
+}
+
+.arrowLeftButtonSquare {
+  border: none;
+  height: 40px;
+  width: 40px;
+  color: $darkBlue;
+  background-color: $white;
+  transition: 0.5s;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.arrowRightButtonSquare {
+  border: none;
+  height: 40px;
+  width: 40px;
+  color: $darkBlue;
+  background-color: $white;
+  transition: 0.5s;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+}
+
+
+.arrowLeftButtonSquare,
+.arrowRightButtonSquare {
+  &:disabled {
+    cursor: default;
+    color: $grey;
+  }
+}
+
+.arrowRightButton {
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: $lightBlue;
+  box-shadow: 0 1px 4px 0 rgba(43, 59, 93, 0.18);
+  cursor: pointer;
+  transition: 0.5s;
+  background: $white;
+}
+
+.arrowLeftButton:hover {
+  background: $lightBlue;
+  color: $white;
+}
+
+.arrowRightButton:hover {
+  background: $lightBlue;
+  color: $white;
+}
+
+
+.arrowLeftButton:disabled:hover {
+  background: $white;
+  background: $lightBlue;
+}
+
+.arrowRightButton:disabled:hover {
+  background: $white;
+  color: $white;
+}
+
+.hf-arrow {
+  border: solid $darkBlue;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+
+  &__up {
+    transform: rotate(-135deg);
+  }
+
+  &__right {
+    transform: rotate(-45deg);
+  }
+
+  &__down {
+    transform: rotate(45deg);
+  }
+
+  &__left {
+    transform: rotate(135deg);
+  }
+
+  &__smaller {
+    padding: 3px;
+  }
+
+  &__narrower {
+    border-width: 0 1px 1px 0;
+  }
+}
+
+.calendarItem {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
+  width: 970px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 20px 0 rgba(228, 235, 242, 0.8);
+  .halfBorder {
+    position: absolute;
+    left: -2px;
+    height: 40px;
+    width: 4px;
+    background: $red;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.hf-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hf-flexbox {
+  display: flex;
+}
+
+.hf-flexbox.wrap {
+  flex-wrap: wrap;
+}
+
+.hf-container > .hf-col {
+  flex: 1;
+  max-width: 100%;
+  min-height: 100px;
+  height: auto;
+  margin: 15px;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  position: relative;
+  transition: all .7s;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+@media (min-width: 992px) {
+  hf-searchbar .hf-searchbar_submit {
+    height: 50px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  hf-searchbar .hf-searchbar_wrap.mainPage .hf-searchbar_col__search {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+hf-searchbar .hf-searchbar_wrap.mainPage .hf-searchbar_col__search {
+  background-color: transparent;
+}
+@media (max-width: 991.98px) {
+  hf-searchbar .hf-searchbar_col {
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+}

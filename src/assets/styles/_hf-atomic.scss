@@ -1,0 +1,551 @@
+// COlORS
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-black {
+  color: #2B2b2b !important;
+}
+.text-l-grey {
+  color: #50627E !important;
+}
+.text-grey {
+  color: #7E8EA6;
+}
+.text-blue {
+  color: #24AFE8;
+}
+.text-l-blue {
+  color: #26ade4 !important;
+}
+.text-white {
+  color: white !important;
+}
+.text-subtitle-grey {
+  color: rgba(72,91,120,0.7)
+}
+
+// FONTS
+.roboto {
+  font-family: 'Roboto';
+}
+.fw300 {
+  font-weight: 300 !important;
+}
+.fw400 {
+  font-weight: 400 !important;
+}
+.fw500 {
+  font-weight: 500 !important;
+}
+.fw-b {
+  font-weight: bold;
+}
+.fz12 {
+  font-size: 12px;
+}
+.fz13 {
+  font-size: 13px;
+}
+.fz14 {
+  font-size: 14px !important;
+}
+.fz15 {
+  font-size: 15px !important;
+}
+.fz16 {
+  font-size: 16px !important;
+}
+.fz17 {
+  font-size: 17px;
+}
+.fz18 {
+  font-size: 18px;
+}
+.fz20 {
+  font-size: 20px;
+}
+.fz22 {
+  font-size: 22px !important;
+}
+.fz23 {
+  font-size: 23px;
+}
+.fz30 {
+  font-size: 30px !important;
+}
+.fz34 {
+  font-size: 34px;
+}
+.fz36 {
+  font-size: 36px !important;
+}
+
+// MARGINS
+.mt-10 {
+  margin-top: -10px !important;
+}
+
+.mt-5 {
+  margin-top: -5px !important;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.mt3 {
+  margin-top: 3px !important;
+}
+
+.mt5 {
+  margin-top: 5px !important;
+}
+
+.mt6 {
+  margin-top: 6px !important;
+}
+
+.mt7 {
+  margin-top: 7px !important;
+}
+
+.mt10 {
+  margin-top: 10px !important;
+}
+
+.mt15 {
+  margin-top: 15px !important;
+}
+
+.mt16 {
+  margin-top: 16px !important;
+}
+
+.mt17 {
+  margin-top: 17px !important;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}
+
+.mt25 {
+  margin-top: 25px !important;
+}
+
+.mt29 {
+  margin-top: 29px !important;
+}
+
+.mt30 {
+  margin-top: 30px !important;
+}
+
+.mt40 {
+  margin-top: 40px !important;
+}
+
+.mt48 {
+  margin-top: 48px;
+}
+
+.mt60 {
+  margin-top: 60px !important;
+}
+
+.mt80 {
+  margin-top: 80px !important;
+}
+
+.mt100 {
+  margin-top: 100px !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mb5 {
+  margin-bottom: 5px;
+}
+
+.mb10 {
+  margin-bottom: 10px !important;
+}
+
+.mb15 {
+  margin-bottom: 15px !important;
+}
+
+.mb20 {
+  margin-bottom: 20px !important;
+}
+
+.mb30 {
+  margin-bottom: 30px !important;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
+}
+
+.mb80 {
+  margin-bottom: 80px !important;
+}
+
+.mb150 {
+  margin-bottom: 150px !important;
+}
+
+.ml0 {
+  margin-left: 0 !important;
+}
+
+.ml4 {
+  margin-left: 4px !important;
+}
+
+.ml10 {
+  margin-left: 10px !important;
+}
+
+.ml15 {
+  margin-left: 15px !important;
+}
+
+.ml20 {
+  margin-left: 20px !important;
+}
+
+.ml30 {
+  margin-left: 30px !important;
+}
+
+.ml33 {
+  margin-left: 33px;
+}
+
+.mr5 {
+  margin-right: 5px !important;
+}
+
+.mr6 {
+  margin-right: 6px;
+}
+
+.mr7 {
+  margin-right: 7px;
+}
+
+.mr10 {
+  margin-right: 10px !important;
+}
+
+.mr15 {
+  margin-right: 15px;
+}
+
+.mr20 {
+  margin-right: 20px !important;
+}
+
+.m0 {
+  margin: 0 !important;
+}
+
+.m0b10 {
+  margin: 0 0 10px 0 !important;
+}
+
+.m0-auto {
+  margin: 0 auto !important;
+}
+
+.mb-10 {
+  margin-bottom: -10px;
+}
+
+.m30auto {
+  margin: 30px auto !important;
+}
+
+//PADINGS
+.p0 {
+  padding: 0 !important;
+}
+
+.p15 {
+  padding: 15px !important;
+}
+
+.pt0 {
+  padding-top: 0 !important;
+}
+
+.pt5 {
+  padding-top: 5px !important;
+}
+
+.pt10 {
+  padding-top: 10px !important;
+}
+
+.pt20 {
+  padding-top: 20px !important;
+}
+
+.pt30 {
+  padding-top: 30px !important;
+}
+
+.pt32 {
+  padding-top: 32px;
+}
+
+.pt40 {
+  padding-top: 40px !important;
+}
+
+.pt80 {
+  padding-top: 80px !important;
+}
+
+.pt200 {
+  padding-top: 200px !important;
+}
+
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+.pb5 {
+  padding-bottom: 5px !important;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.pb20 {
+  padding-bottom: 20px !important;
+}
+
+.pb30 {
+  padding-bottom: 30px;
+}
+
+.pb40 {
+  padding-bottom: 40px !important;
+}
+
+.pb80 {
+  padding-bottom: 80px !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
+.pl5 {
+  padding-left: 5px !important;
+}
+
+.pl10 {
+  padding-left: 10px !important;
+}
+
+.pl20 {
+  padding-left: 20px !important;
+}
+
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pr5 {
+  padding-right: 5px !important;
+}
+
+.pr10 {
+  padding-right: 10px !important;
+}
+
+//ANOTHER
+.fd-column {
+  flex-direction: column;
+}
+
+.d-ib {
+  display: inline-block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-flex-end {
+  justify-content: flex-end !important;
+}
+
+.w100p {
+  width: 100% !important;
+}
+
+.w50p {
+  width: 50% !important;
+}
+.lh17 {
+  line-height: 17px;
+}
+.lh18 {
+  line-height: 18px;
+}
+.lh20 {
+  line-height: 20px;
+}
+.lh21 {
+  line-height: 21px;
+}
+.lh24 {
+  line-height: 24px;
+}
+.lh50 {
+  line-height: 50px;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.nopointer {
+  cursor: default;
+}
+
+.mobile-flex-wrap {
+  @media (max-width: 1100px) {
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
+}
+
+.min-h-u {
+  min-height: unset !important;
+}
+
+.bs-none {
+  box-shadow: none !important;
+}
+
+.position-unset {
+  position: unset !important;
+}
+
+.tas {
+  text-align: start;
+}
+
+.w35p {
+  width: 35% !important;
+}
+
+.mw24p{
+  width: 24% !important;
+}
+
+.h100p {
+  height: 100% !important;
+}
+
+.h-unset{
+  height: unset !important;
+}
+
+.bg-transparent {
+  background: transparent !important;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.width-unset {
+  width: unset !important;
+}
+
+.vh {
+  visibility: hidden !important;
+}
+
+.text-t-capitalize {
+  text-transform: capitalize;
+}
+
+.text-t-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-t-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+.td-none {
+  text-decoration: none !important;
+}
+
+.max-h-u {
+  max-height: unset !important;
+}
+
+.bg-black {
+  background-color: #141317;
+  color: white;
+}
+
+.text-gray-opacity {
+  color: rgba(255,255,255,0.8);
+}
+
+.d-inline-b {
+  display: inline-block;
+}
+
+.f-align-center {
+  align-items: center;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.ws-nowrap {
+  white-space: nowrap;
+}
+
+.mh-unset {
+  max-height: unset !important;
+}

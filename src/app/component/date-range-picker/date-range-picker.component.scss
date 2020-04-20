@@ -1,0 +1,617 @@
+@import "../../../assets/styles/media";
+.hf-datepicker {
+  &_wrap {
+    position: relative;
+    width: 100%;
+    & .visible-hotel {
+      display: none;
+    }
+    & .unvisible-hotel-label {
+      display: block;
+    }
+    @include lg {
+      & .hf-datepicker_field .unvisible-hotel-label {
+        margin-top: 6px;
+      }
+    }
+  }
+  &_field {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 30px 5px 10px;
+    width: 100%;
+    user-select: none;
+    border: 1px solid transparent;
+    border-bottom: 3px solid transparent;
+    min-height: 50px;
+    height: 50px;
+    &:after {
+      content: "";
+      border: solid #50627e;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      right: 8px;
+      position: absolute;
+
+      @include xs-max {
+        display: none;
+      }
+    }
+
+    &-small {
+      display: block !important;
+      padding: 0 !important;
+      border: 0 !important;
+      height: unset !important;
+      min-height: unset !important;
+
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+  &_placeholder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: visible;
+    font-size: 17px;
+    color: #2b2b2b;
+    min-height: 20px;
+
+    &-small {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      overflow: visible;
+      color: rgba(72, 91, 120, 0.5);
+      font-size: 13px;
+      line-height: 15px;
+      min-height: unset;
+    }
+  }
+}
+
+.double,
+.doubleRight,
+.withTime,
+.single {
+  margin-top: 25px;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 500px;
+  background-color: #ffffff;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+  z-index: 9999;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: white;
+    width: 10px;
+    left: 15px;
+    top: -5px;
+    height: 10px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    transform: rotate(135deg);
+    z-index: 9998;
+  }
+  user-select: none;
+  -moz-user-select: none;
+  .left,
+  .right {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    background-color: #ffffff;
+    z-index: 9999;
+    .header {
+      width: 100%;
+      height: 50px;
+      border-bottom: 1px solid #f1f4f7;
+      color: #50627e;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .main {
+      position: relative;
+      width: 100%;
+      height: 69%;
+      .calendar {
+        position: absolute;
+        width: 80%;
+        height: 82%;
+        top: 9%;
+        bottom: 9%;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        .dot {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 14%;
+          height: 16%;
+          font-weight: 500;
+          font-size: 13px;
+          text-align: center;
+          color: #7e8ea6;
+        }
+        .dot:hover {
+          background: #26ade4;
+          color: #ffffff;
+          cursor: pointer;
+        }
+        .currentMonth {
+          color: #50627e;
+        }
+        .beforeToday {
+          color: #aebccf;
+        }
+        .beforeToday:hover {
+          cursor: default;
+          background: #ffffff;
+          color: #aebccf;
+        }
+        .notCurrentMonth:hover {
+          background: #ffffff;
+          cursor: default;
+        }
+        .highlighted {
+          background-color: #7bc8f5;
+          color: #ffffff;
+        }
+        .rangeStart {
+          background: #26ade4;
+          border-bottom-left-radius: 3px;
+          border-top-left-radius: 3px;
+          color: #ffffff;
+        }
+        .rangeEnd {
+          background: #26ade4;
+          border-bottom-right-radius: 3px;
+          border-top-right-radius: 3px;
+          color: #ffffff;
+        }
+        .weekDays {
+          text-transform: uppercase;
+          width: 14%;
+          height: 14%;
+          text-align: center;
+          font-size: 10px;
+          font-weight: bold;
+          color: #aebccf;
+        }
+      }
+      .lc {
+        left: 7%;
+      }
+      .rc {
+        right: 7%;
+      }
+    }
+    .footer,
+    .right-footer {
+      width: 100%;
+      height: 38px;
+      border-top: 1px solid #f1f4f7;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 20px;
+      .right {
+        display: none;
+      }
+      .today {
+        color: #3a3a3a;
+        font-weight: 500;
+        font-size: 13px;
+        margin-right: 13px;
+      }
+      .todayDate {
+        color: #aebccf;
+        font-weight: 500;
+        font-size: 12px;
+      }
+    }
+    .arrowRightMobile {
+      display: none;
+    }
+    .arrowLeft,
+    .arrowRight,
+    .arrowRightMobile {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      text-align: center;
+      top: 10px;
+      position: absolute;
+    }
+    .arrowLeft:hover,
+    .arrowRight:hover {
+      border-radius: 50%;
+      background: #f1f4f7;
+    }
+    .arrowLeft {
+      padding-right: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 20px;
+    }
+    .arrowRight {
+      padding-left: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 20px;
+    }
+    .monthAndYear {
+      text-align: center;
+      user-select: none;
+      -moz-user-select: none;
+      padding-top: 6px;
+      font-weight: 500;
+      font-size: 15px;
+    }
+  }
+}
+
+.doubleRight {
+  left: 0;
+  right: 0;
+  &:before {
+    left: 15px;
+    right: auto;
+  }
+  @include lg {
+    left: auto;
+    &:before {
+      right: 15px;
+      left: auto;
+    }
+  }
+}
+
+.withTime {
+  width: 240px;
+  height: 350px;
+  margin-top: 15px;
+  .left {
+    width: 100%;
+    padding: 0;
+    .main {
+      padding: 0 0 0 15px;
+      width: 100%;
+      height: 190px;
+      .calendar {
+        top: 0;
+        bottom: 0;
+        width: 90%;
+        height: 80%;
+        .highlighted {
+          border-radius: 4px;
+          background: #26ade4;
+          color: #ffffff;
+        }
+      }
+    }
+    .timeContainer {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .time {
+        width: 180px;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        span {
+          color: #aebccf;
+        }
+        .timeInput {
+          width: 50px;
+          height: 40px;
+          border: 1px solid #dbe3eb;
+          border-radius: 4px;
+          text-align: center;
+          -moz-appearance: textfield;
+          font-weight: 500;
+          font-size: 13px;
+          color: #aebccf;
+        }
+        .timeInput::placeholder {
+          color: #aebccf;
+        }
+        .timeInput::-webkit-outer-spin-button,
+        .timeInput::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+        .timeInput:focus {
+          outline: none;
+          border: 2px solid #7bc8f5;
+        }
+        .half {
+          user-select: none;
+          -moz-user-select: none;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          position: relative;
+          width: 40px;
+          height: 40px;
+          border-radius: 4px;
+          border: 1px solid #7bc8f5;
+          .hbutton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50%;
+            font-weight: 500;
+            font-size: 11px;
+            color: #7bc8f5;
+            background: #ffffff;
+          }
+          .active {
+            background: #7bc8f5;
+            color: #ffffff;
+          }
+        }
+        .ng-invalid {
+          border: 2px solid #ea6565;
+        }
+      }
+    }
+  }
+}
+
+.single {
+  width: 240px;
+  height: 300px;
+  margin-top: 15px;
+  .left {
+    width: 100%;
+    padding: 0;
+    .main {
+      padding: 0 0 0 15px;
+      width: 100%;
+      height: 69%;
+      .calendar {
+        top: 9%;
+        bottom: 9%;
+        width: 90%;
+        .highlighted {
+          border-radius: 4px;
+          background: #26ade4;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.withTime.hotelPage {
+  left: -10px;
+}
+
+.column {
+  flex-direction: column;
+  width: 250px;
+  left: -15px;
+  height: 400px;
+  .left,
+  .right {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+.picker.roomEdit {
+  color: red;
+  background: silver;
+}
+
+.searchPage.active-border {
+  border: 1px solid #7bc8f5;
+}
+
+.searchPage.hover-border {
+  border: 1px solid #7e8ea6;
+}
+
+.searchPage.inactive-border {
+  border: 1px solid #dbe3eb;
+}
+
+.searchPage.transparent {
+  border: 1px solid transparent;
+}
+
+@include sm-max {
+  .withTime {
+    right: 0;
+    left: auto;
+    &:before {
+      left: auto;
+      right: 15px;
+    }
+  }
+}
+
+@include xs-max {
+  .double,
+  .doubleRight {
+    max-height: calc(100vh - 30px);
+    overflow: auto;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 0 20px 0 rgba(#000, 0.2);
+    height: auto;
+    flex-direction: column;
+    &:before {
+      display: none;
+    }
+    .right {
+      height: 295px;
+      width: 100%;
+      .main {
+        .calendar {
+          width: 100%;
+        }
+        .rc {
+          left: 0;
+        }
+      }
+      .header {
+        border: none;
+        .arrowRight {
+          display: none;
+        }
+      }
+      .right-footer {
+        border: none;
+        left: 0;
+        .right {
+          width: 100%;
+          height: 38px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .today {
+            color: #3a3a3a;
+            font-weight: 500;
+            font-size: 13px;
+            margin-right: 13px;
+          }
+          .todayDate {
+            color: #aebccf;
+            font-weight: 500;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .left {
+      width: 100%;
+      height: 257px;
+      .header {
+        border: none;
+      }
+      .main {
+        height: calc(69% + 15px);
+        .calendar {
+          width: 100%;
+        }
+        .lc {
+          left: 0;
+        }
+      }
+      .footer {
+        display: none;
+      }
+      .arrowRightMobile {
+        display: flex;
+      }
+      .arrowRightMobile {
+        padding-left: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 20px;
+      }
+    }
+  }
+  .single,
+  .withTime {
+    max-height: calc(100vh - 30px);
+    overflow: auto;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 0 20px 0 rgba(#000, 0.2);
+  }
+}
+
+.productPage {
+  height: 20px !important;
+  padding-left: 0;
+  margin-left: 30px;
+  @include lg {
+    height: 20px !important;
+  }
+  .hf-datepicker {
+    &_placeholder {
+      color: #aebccf;
+      opacity: 0.8;
+      font-family: "Roboto";
+      font-weight: 400;
+      font-size: 17px;
+    }
+    &_field__icon-hack {
+      margin-left: 25px !important;
+    }
+  }
+}
+
+.hf-datepicker_field.hf-datepicker_field__icon-hack.picker.select_date.productPage {
+  @include xs-max {
+    width: calc(100vw - 120px) !important;
+  }
+}
+
+.hotelPage {
+  & .visible-hotel {
+    display: inline-block;
+  }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .hf-datepicker_wrap .hf-datepicker_field .unvisible-hotel-label {
+      margin-top: 0;
+    }
+  }
+}
+
+.short-search_tips {
+  left: -34px;
+  margin-top: 6px;
+
+  @include xs-max {
+    bottom: unset !important;
+    left: 0;
+  }
+}
+
+.picker-wrap {
+  @include xs-max {
+    display: block !important;
+    border: 0;
+    min-height: 38px;
+    height: 38px;
+    padding: 5px 10px;
+  }
+
+  @media screen and (max-width: 375px) {
+    padding: 5px 4px;
+  }
+}

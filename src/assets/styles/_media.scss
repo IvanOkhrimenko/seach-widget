@@ -1,0 +1,104 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1280px;
+$xxl: 1305px;
+
+$xs-max: $sm - .02px;
+$sm-max: $md - .02px;
+$md-max: $lg - .02px;
+$lg-max: $xl - .02px;
+$xxl-max: $xxl - .02px;
+
+$gutter: 20px;
+
+// The maximum value is calculated as the minimum of the next one less 0.02px to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+
+@mixin xs-max {
+  @media (max-width: #{$xs-max}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{$sm}) {
+    @content;
+  }
+}
+@mixin sm-max {
+  @media (max-width: #{$sm-max}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$md}) {
+    @content;
+  }
+}
+@mixin md-max {
+  @media (max-width: #{$md-max}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$lg}) {
+    @content;
+  }
+}
+@mixin lg-max {
+  @media (max-width: #{$lg-max}) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: #{$xxl-max}) {
+    @content;
+  }
+}
+@mixin xxl-max {
+  @media (max-width: #{$xxl-max}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{$xl}) {
+    @content;
+  }
+}
+@mixin xl-max {
+  @media (max-width: #{$xl}) {
+    @content;
+  }
+}
+@mixin xs-only {
+  @include xs-max {
+    @content;
+  }
+}
+@mixin sm-only {
+  @include sm {
+    @include sm-max {
+      @content;
+    }
+  }
+}
+@mixin md-only {
+  @include md {
+    @include md-max {
+      @content;
+    }
+  }
+}
+@mixin lg-only {
+  @include lg {
+    @include lg-max {
+      @content;
+    }
+  }
+}
+@mixin xl-only {
+  @include xl {
+    @content;
+  }
+}
