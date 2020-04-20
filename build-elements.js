@@ -9,7 +9,7 @@ const widgetName = 'search-widget';
         './dist/search-widget/runtime-es2015.js',
         './dist/search-widget/main-es2015.js',
     ];
-    await fs.ensureDir('elements');
+    // await fs.ensureDir('elements');
     console.log(files)
-    await concat(files, `elements/${widgetName}.js`);
+    await concat(files, `dist/search-widget/${widgetName}.js`);
 })().catch(err => console.debug(err));
