@@ -5,7 +5,7 @@ const widgetName = 'search-widget';
 
 (async function build() {
     const files = [
-        './dist/search-widget/styles.css',
+        // './dist/search-widget/scripts.js',
         './dist/search-widget/runtime-es2015.js',
         './dist/search-widget/main-es2015.js',
     ];
