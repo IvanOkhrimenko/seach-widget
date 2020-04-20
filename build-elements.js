@@ -5,9 +5,9 @@ const widgetName = 'search-widget';
 
 (async function build() {
     const files = [
-        './dist/widget/scripts.js',
-        './dist/widget/runtime-es2015.js',
-        './dist/widget/main-es2015.js',
+        // './dist/search-widget/scripts.js',
+        './dist/search-widget/runtime-es2015.js',
+        './dist/search-widget/main-es2015.js',
     ];
     await fs.ensureDir('elements');
     console.log(files)
