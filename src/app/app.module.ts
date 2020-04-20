@@ -26,7 +26,7 @@ import { reducers } from './store/reducers';
     RouterModule.forRoot([]),
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
   entryComponents: [AppComponent, SearchbarComponent]
 })
 export class AppModule {
