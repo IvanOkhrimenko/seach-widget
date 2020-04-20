@@ -37,5 +37,11 @@ export class AppModule {
     if (!customElements.get('hf-calendar')) {
       customElements.define('hf-calendar', calendar);
     }
+
+    const calendarApp = createCustomElement(AppComponent, { injector: this.injector });
+    if (!customElements.get('hf-calendar-app')) {
+      customElements.define('hf-calendar-app', calendarApp);
+    }
+
   }
 }
