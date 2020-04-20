@@ -1,7 +1,7 @@
 // build-elements.js
 const fs = require('fs-extra');
 const concat = require('concat');
-const widgetName = 'widget-name';
+const widgetName = 'search-widget';
 
 (async function build() {
     const files = [
