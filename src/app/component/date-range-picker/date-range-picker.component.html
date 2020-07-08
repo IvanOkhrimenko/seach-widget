@@ -1,0 +1,232 @@
+<div class="hf-datepicker_wrap dpContainer" id="dateRangePicker">
+  <div class="hf-datepicker_field picker select_date {{inputClass}}" (click)="show()" #picker
+    [ngClass]="{'picker-wrap': !titleDates, 'hf-datepicker_field-small': !showDropdown}">
+    <div *ngIf="titleDates" class="text-l-grey unvisible-hotel-label mb5">Dates</div>
+    <div class="d-flex align-items-center">
+      <img [src]="'/assets/icons/searchbar/new-searchbar-calendar.svg'" alt="" class="mr6"
+        [ngClass]="showIcon ? 'visible-hotel' : 'd-none'">
+      <div class="hf-datepicker_placeholder fw300 range select_date demo_form_field_gtm" #range
+        [ngClass]="!showDropdown ? 'hf-datepicker_placeholder-small' : ''">
+        {{placeholder}}
+      </div>
+    </div>
+  </div>
+  <!--Double------------------------------------------------------------------------------------------------------------->
+  <div *ngIf="type === 'double'">
+    <div [class]="calendarClass" [ngClass]="!titleDates ? 'short-search_tips' : ''" *ngIf="showPicker"
+      (hidden)="hide($event)">
+      <div class="left">
+        <div class="header">
+          <div class="arrowLeft" (click)="changeMonth('back')">
+            <img src="/assets/icons/arrow-left.svg" alt="arrow-left">
+          </div>
+          <div class="arrowRightMobile" (click)="changeMonth('next')">
+            <img src="/assets/icons/arrow-right-blue.svg" alt="arrow-right">
+          </div>
+          <!--<div class="monthAndYear">{{currentMonthHeader}}</div>-->
+          <div *ngIf="curHeaderMonth === 'Jan'" class="monthAndYear">Jan&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Feb'" class="monthAndYear">Fab&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Mar'" class="monthAndYear">Mar&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Apr'" class="monthAndYear">Apr&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'May'" class="monthAndYear">May&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Jun'" class="monthAndYear">Jun&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Jul'" class="monthAndYear">Jul&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Aug'" class="monthAndYear">Aug&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Sep'" class="monthAndYear">Sep&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Oct'" class="monthAndYear">Oct&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Nov'" class="monthAndYear">Nov&nbsp;&nbsp;{{curYear}}</div>
+          <div *ngIf="curHeaderMonth === 'Dec'" class="monthAndYear">Dec&nbsp;&nbsp;{{curYear}}</div>
+        </div>
+        <div class="main">
+          <div class="calendar lc">
+            <!--<div class="weekDays" *ngFor="let day of weekDays">{{day}}</div>-->
+            <div class="weekDays">Mon</div>
+            <div class="weekDays">Tue</div>
+            <div class="weekDays">Wed</div>
+            <div class="weekDays">Thu</div>
+            <div class="weekDays">Fri</div>
+            <div class="weekDays">Sat</div>
+            <div class="weekDays">Sun</div>
+            <div class="dot" *ngFor="let date of monthDates;" (mouseenter)="mouseEnter(date)" (click)="selectDate(date)"
+              [ngClass]="{'currentMonth': date.isCurrentMonth,
+                            'notCurrentMonth': !date.isCurrentMonth,
+                            'highlighted': date.highlighted,
+                            'beforeToday': date.unreachable,
+                            'rangeStart': date.rangeStart,
+                            'rangeEnd': date.rangeEnd}" [attr.data-native-date]="date.date">
+              {{date.isCurrentMonth? date.day: ''}}
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <span class="today">Today</span>
+          <span class="todayDate">{{today}}</span>
+        </div>
+      </div>
+      <div class="right">
+        <div class="header">
+          <div class="arrowRight" (click)="changeMonth('next')">
+            <img src="/assets/icons/arrow-right-blue.svg" alt="arrow-right">
+          </div>
+          <!--<div class="monthAndYear">{{nextMonthHeader}}</div>-->
+          <div *ngIf="nextHeaderMonth === 'Jan'" class="monthAndYear">Jan&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Feb'" class="monthAndYear">Fab&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Mar'" class="monthAndYear">Mar&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Apr'" class="monthAndYear">Apr&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'May'" class="monthAndYear">May&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Jun'" class="monthAndYear">Jun&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Jul'" class="monthAndYear">Jul&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Aug'" class="monthAndYear">Aug&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Sep'" class="monthAndYear">Sep&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Oct'" class="monthAndYear">Oct&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Nov'" class="monthAndYear">Nov&nbsp;&nbsp;{{nextYear}}</div>
+          <div *ngIf="nextHeaderMonth === 'Dec'" class="monthAndYear">Dec&nbsp;&nbsp;{{nextYear}}</div>
+
+        </div>
+        <div class="main">
+          <div class="calendar rc">
+            <!--<div class="weekDays" *ngFor="let day of weekDays">{{day}}</div>-->
+            <div class="weekDays">Mon</div>
+            <div class="weekDays">Tue</div>
+            <div class="weekDays">Wed</div>
+            <div class="weekDays">Thu</div>
+            <div class="weekDays">Fri</div>
+            <div class="weekDays">Sat</div>
+            <div class="weekDays">Sun</div>
+            <div class="dot" *ngFor="let date of nextMonthDates;" (mouseenter)="mouseEnter(date)"
+              (click)="selectDate(date)" [ngClass]="{'currentMonth': date.isCurrentMonth,
+                           'notCurrentMonth': !date.isCurrentMonth,
+                           'beforeToday': date.unreachable,
+                           'highlighted': date.highlighted,
+                           'rangeStart': date.rangeStart,
+                           'rangeEnd': date.rangeEnd}" [attr.data-native-date]="date.date">
+              {{date.isCurrentMonth? date.day: ''}}
+            </div>
+          </div>
+        </div>
+        <div class="right-footer">
+          <div class="right">
+            <span class="today">Today</span>
+            <span class="todayDate">{{today}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--With Time---------------------------------------------------------------------------------------------------------->
+  <div *ngIf="type === 'withTime'" hf-hide (hidden)="hide($event)">
+    <div *ngIf="showPicker">
+      <div class="withTime" [ngClass]="dropdownClass">
+        <div class="left">
+          <div class="header">
+            <div class="arrowLeft" (click)="changeMonth('back')">
+              <img src="/assets/icons/arrow-left.svg" alt="arrow-left">
+            </div>
+            <div class="arrowRight" (click)="changeMonth('next')">
+              <img src="/assets/icons/arrow-right-blue.svg" alt="arrow-right">
+            </div>
+            <!--<div class="monthAndYear">{{currentMonthHeader}}</div>-->
+            <div *ngIf="curHeaderMonth === 'Jan'" class="monthAndYear">Jan&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Feb'" class="monthAndYear">Fab&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Mar'" class="monthAndYear">Mar&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Apr'" class="monthAndYear">Apr&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'May'" class="monthAndYear">May&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Jun'" class="monthAndYear">Jun&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Jul'" class="monthAndYear">Jul&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Aug'" class="monthAndYear">Aug&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Sep'" class="monthAndYear">Sep&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Oct'" class="monthAndYear">Oct&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Nov'" class="monthAndYear">Nov&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Dec'" class="monthAndYear">Dec&nbsp;&nbsp;{{curYear}}</div>
+          </div>
+          <div class="timeContainer">
+            <form class="time" [formGroup]="timeForm" novalidate>
+              <input type="number" class="timeInput" (focus)="clearValue('hours')" (input)="timeFilter('hours')" #hours
+                formControlName="hours">
+              <span>:</span>
+              <input type="number" class="timeInput" (focus)="clearValue('minutes')" (input)="timeFilter('minutes')"
+                #minutes formControlName="minutes">
+            </form>
+          </div>
+          <div class="main">
+            <div class="calendar">
+              <!--<div class="weekDays" *ngFor="let day of weekDays">{{day}}</div>-->
+              <div class="weekDays">Mon</div>
+              <div class="weekDays">Tue</div>
+              <div class="weekDays">Wed</div>
+              <div class="weekDays">Thu</div>
+              <div class="weekDays">Fri</div>
+              <div class="weekDays">Sat</div>
+              <div class="weekDays">Sun</div>
+              <div class="dot" *ngFor="let date of monthDates;" (mouseenter)="mouseEnter(date)"
+                (click)="selectSingleTime(date)" [ngClass]="{'currentMonth': date.isCurrentMonth,
+                            'notCurrentMonth': !date.isCurrentMonth,
+                            'beforeToday': date.unreachable,
+                            'highlighted': date.highlighted
+                             }" [attr.data-native-date]="date.date">
+                {{date.isCurrentMonth? date.day: ''}}
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <span class="today">Today</span>
+            <span class="todayDate">{{today}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Single------------------------------------------------------------------------------------------------------------->
+  <div *ngIf="type === 'single'" hf-hide (hidden)="hide($event)">
+    <div *ngIf="showPicker">
+      <div class="single" [ngClass]="dropdownClass">
+        <div class="left">
+          <div class="header">
+            <div class="arrowLeft" (click)="changeMonth('back')">
+              <img src="/assets/icons/arrow-left.svg" alt="arrow-left">
+            </div>
+            <div class="arrowRight" (click)="changeMonth('next')">
+              <img src="/assets/icons/arrow-right-blue.svg" alt="arrow-right">
+            </div>
+            <!--<div class="monthAndYear">{{currentMonthHeader}}</div>-->
+            <div *ngIf="curHeaderMonth === 'Jan'" class="monthAndYear">Jan&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Feb'" class="monthAndYear">Fab&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Mar'" class="monthAndYear">Mar&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Apr'" class="monthAndYear">Apr&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'May'" class="monthAndYear">May&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Jun'" class="monthAndYear">Jun&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Jul'" class="monthAndYear">Jul&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Aug'" class="monthAndYear">Aug&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Sep'" class="monthAndYear">Sep&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Oct'" class="monthAndYear">Oct&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Nov'" class="monthAndYear">Nov&nbsp;&nbsp;{{curYear}}</div>
+            <div *ngIf="curHeaderMonth === 'Dec'" class="monthAndYear">Dec&nbsp;&nbsp;{{curYear}}</div>
+          </div>
+          <div class="main">
+            <div class="calendar">
+              <!--<div class="weekDays" *ngFor="let day of weekDays">{{day}}</div>-->
+              <div class="weekDays">Mon</div>
+              <div class="weekDays">Tue</div>
+              <div class="weekDays">Wed</div>
+              <div class="weekDays">Thu</div>
+              <div class="weekDays">Fri</div>
+              <div class="weekDays">Sat</div>
+              <div class="weekDays">Sun</div>
+              <div class="dot" *ngFor="let date of monthDates;" (mouseenter)="mouseEnter(date)"
+                (click)="selectSingle(date)" [ngClass]="{'currentMonth': date.isCurrentMonth,
+                            'notCurrentMonth': !date.isCurrentMonth,
+                            'beforeToday': date.unreachable,
+                            'highlighted': date.highlighted}" [attr.data-native-date]="date.date">
+                {{date.isCurrentMonth? date.day: ''}}
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <span class="today">Today</span>
+            <span class="todayDate">{{today}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

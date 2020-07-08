@@ -1,0 +1,50 @@
+<div class="no-gutters hf-searchbar_wrap {{className}} container mt16">
+  <div class="row hf-searchbar_row {{className}}">
+
+    <!-- Mobile search toggler -->
+    <div class="col order-0 d-none d-none-lg d-none-xl
+                hf-searchbar_col hf-searchbar_col__toggler
+                {{className}}">
+      <button class="hf-searchbar_toggler hf-searchbar_toggler__search"
+        [ngClass]="collapseState ? 'hf-searchbar_toggler__active' : ''"></button>
+    </div>
+    <!-- /Mobile search toggler -->
+
+    <!-- Nights filter -->
+    <div class="col-md-6 col-lg-4 order-2 order-lg-1
+                hf-searchbar_col hf-searchbar_col__nights hf-searchbar_filter
+                {{className}}" [ngClass]="collapseState ? 'hidden-filter_on-mobile' : ''">
+      <div class="hf-searchbar_nights d-flex">
+
+        <hf-date-range-picker class="w100p" #picker [dpOptions]="dpsOptions"
+          [openDatePickerSelector]="openDatePickerSelector$" [showIcon]="false">
+        </hf-date-range-picker>
+      </div>
+    </div>
+    <!-- /Nights filter -->
+
+    <!-- Guests filter -->
+    <div class="col-md-6 col-lg-4 order-3 order-lg-2
+                hf-searchbar_col hf-searchbar_col__guests hf-searchbar_filter
+                {{className}}" [ngClass]="collapseState ? 'hidden-filter_on-mobile' : ''">
+      <div class="hf-searchbar_guests d-flex">
+        <div class="hf-searchbar_field-icon hf-searchbar_field-icon__guests"></div>
+        <hf-guests class="hf-searchbar_field guest-wrapper" [guestOptions]="gOptions" [inputClass]="className"
+          [showChildrenBlock]="true" #guestInput [showIcon]="false">
+        </hf-guests>
+      </div>
+    </div>
+    <div class="hf-searchbar_devider" [ngClass]="collapseState ? '' : 'hidden-filter-devider'"></div>
+    <!-- /Guests filter -->
+
+    <!-- Submit search button -->
+    <div class="order-11 order-lg-3 col-lg-4
+                hf-searchbar_col hf-searchbar_col__submit
+                {{className}}" [ngClass]="collapseState ? 'hidden-filter_on-mobile' : ''">
+      <button class="hf-searchbar_submit hf-searchbar_toggler smallButton {{className}}" (click)="search()">
+        Search
+      </button>
+    </div>
+    <!-- /Submit search button -->
+  </div>
+</div>

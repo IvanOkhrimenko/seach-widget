@@ -1,0 +1,96 @@
+<div *ngIf="isDropdown" class="hf-guests_wrap gpContainer {{inputClass}}" id="guests" [ngClass]="isShort ? 'short-search' : ''">
+  <div id="datePricePicker" (click)='show()' class='hf-guests_field hf-guests_field__icon-hack picker {{inputClass}}'
+    #guests [ngClass]="isShort ? 'picker-wrap' : ''">
+    <div *ngIf="!isShort" class="text-l-grey unvisible-hotel-label mb5">Guests</div>
+    <div class="d-flex align-items-center">
+      <img [src]="'/assets/icons/searchbar/new-searchbar-guest.svg'" alt="" class="mr6" [ngClass]="showIcon ? 'visible-hotel' : 'd-none'">
+      <span *ngIf="!isShort" class="hf-guests_prefix fw300">Adults&nbsp;{{adults}}
+        <span *ngIf="showChildrenBlock">,&nbsp;Children</span><span
+          *ngIf="showChildrenBlock">&nbsp;{{children}}</span></span>
+        <span *ngIf="isShort" class="hf-guests_prefix fw300">{{placeholder}} <span *ngIf="adults > 0">{{adults}}</span></span>
+    </div>
+  </div>
+  <div class='hf-guests_list guestContainer counterContainer' *ngIf="showPP" (hidden)="show();"
+    [ngClass]="isShort ? 'short-search_tips' : ''">
+    <div class="hf-guests_people people">
+      <span class="hf-guests_people-maturity maturity">Guests</span>
+      <div class="d-flex f-align-center fw500">
+        <span class="hf-guests_people-minus minus" (click)="changeCount('adults', 'decrease', 'adults')"> &#8212; </span>
+        <span class="hf-guests_people-counter counter">{{adults}} </span>
+        <span class="hf-guests_people-plus plus" (click)="changeCount('adults', 'increase')"> + </span>
+      </div>
+    </div>
+
+    <div class="hf-guests_people people mt16">
+      <span class="hf-guests_people-maturity maturity">Child</span>
+      <div class="d-flex f-align-center fw500">
+        <span class="hf-guests_people-minus minus" (click)="removeKidsByIndex(children - 1)"> &#8212; </span>
+        <span class="hf-guests_people-counter counter">{{children}} </span>
+        <span class="hf-guests_people-plus plus" (click)="childQuantity$.next(1)"> + </span>
+      </div>
+    </div>
+
+    <div class="hf-guests_people form" *ngIf="showChildrenBlock && children">
+      <div class="hf-guests_people-maturity maturity mt20" style="color: rgba(72,91,120,0.7);">Children till 14 years</div>
+      <form [formGroup]="form">
+        <div formArrayName="kidsAge">
+          <div *ngFor="let age of form['controls']['kidsAge']['controls']; let i = index" class="mt16">
+            <div class="mt-form_group">
+              <div class="panel-heading" [formGroupName]="i">
+                <div class="label-child">{{i + 1 + '. '}}Child</div>
+                <div class="input-child">
+                  <input name="age" id="age" [max]="maxChildrenAge" (change)="emitChanges()" min="0" type="number"
+                    class="mt-form_input" formControlName="age">
+                  <label for="children" class="label-child">y.old</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="mt-form_group">
+          <input id="children" #children type="hidden" class="mt-form_input" [class.red]="isFieldValid('children')"
+            formControlName="children"> -->
+          <!-- <span *ngIf="isFieldValid('children')" class="mt-form_error">
+            {{ "VALIDATION.invalid-kids" | translate }}
+          </span> -->
+        <!-- </div> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isDropdown" class="hf-guests_wrap gpContainer {{inputClass}}" id="guests">
+  <div class='hf-guests_list guestContainer counterContainer bs-none position-unset' (hidden)="show();">
+    <div class="hf-guests_people people">
+
+      <span class="hf-guests_people-minus minus" (click)="changeCount('adults', 'decrease', 'adults')">
+        <img src="/assets/icons/minus.svg" alt="">
+      </span>
+      <span class="hf-guests_people-counter counter width-unset"
+        *ngIf="adults == 0">Set travelers </span>
+      <span class="hf-guests_people-counter counter" *ngIf="adults > 0">{{adults}}</span>
+      <span class="hf-guests_people-plus plus" (click)="changeCount('adults', 'increase')">
+        <img src="/assets/icons/plus.svg" alt="">
+      </span>
+    </div>
+    <div class="hf-guests_people form" *ngIf="showChildrenBlock">
+      <div class="hf-guests_people-maturity maturity">Children till 14 years</div>
+      <form [formGroup]="form">
+        <div formArrayName="kidsAge">
+          <div *ngFor="let age of form['controls']['kidsAge']['controls']; let i = index">
+            <div class="mt-form_group">
+              <div class="panel-heading" [formGroupName]="i">
+                <div class="label-child">{{i + 1 + '. '}}Child</div>
+                <div class="input-child">
+                  <input name="age" id="age" [max]="maxChildrenAge" (change)="emitChanges()" min="0" type="number"
+                    class="mt-form_input" formControlName="age">
+                  <label for="children" class="cross" (click)="removeKidsByIndex(i)">&#120;</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
