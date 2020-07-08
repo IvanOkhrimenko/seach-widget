@@ -42,7 +42,7 @@ export const NIGHT = 'Night';
 })
 export class SearchbarComponent implements OnInit, OnDestroy {
 
-  @Input() engineId = '';
+  @Input() id = '';
   @Input() domain = 'hotelfriend';
 
   className = "mainPage";
@@ -213,7 +213,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
       return;
     } else {
       window.open(
-        `https://${this.domain}/engine/${this.engineId}?checkin=${this.filterState.checkin}&checkout=${this.filterState.checkout}&children=${this.filterState.children}&kidsAge=${this.filterState.kidsAge}`, '_blank' 
+        `https://${this.domain}/engine/${this.id}?checkin=${this.filterState.checkin}&checkout=${this.filterState.checkout}&children=${this.filterState.children}&kidsAge=${this.filterState.kidsAge}`, '_blank' 
       );
       // if (this.pageType === FilterType.bookingEnginePage) {
       //   this.searchBookingEngine.emit({ checkin: this.filterState.checkin, checkout: this.filterState.checkout, adults: this.filterState.adults, children: this.filterState.children, kidsAge: this.filterState.kidsAge });
