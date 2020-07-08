@@ -1,4 +1,5 @@
-@import "../../../assets/styles/media";
+@import "../../../assets/styles/styles-main";
+
 .hf-datepicker {
   &_wrap {
     position: relative;
@@ -28,6 +29,7 @@
     border-bottom: 3px solid transparent;
     min-height: 50px;
     height: 50px;
+    box-sizing: border-box;
     &:after {
       content: "";
       border: solid #50627e;

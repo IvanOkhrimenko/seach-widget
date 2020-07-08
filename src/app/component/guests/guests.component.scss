@@ -1,4 +1,4 @@
-@import "../../../assets/styles/media";
+@import "../../../assets/styles/styles-main";
 
 .hf-guests {
   &_wrap {
@@ -32,6 +32,7 @@
     user-select: none;
     border: 1px solid transparent;
     border-bottom: 3px solid transparent;
+    box-sizing: border-box;
 
     &:after {
       content: "";
