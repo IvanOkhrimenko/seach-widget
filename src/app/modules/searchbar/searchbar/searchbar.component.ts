@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild, Input } from '@angular/core';
 // import { Router } from '@angular/router';
 import { Subject } from 'rxjs/internal/Subject';
 import { Store } from '@ngrx/store';
@@ -41,6 +41,9 @@ export const NIGHT = 'Night';
   ]
 })
 export class SearchbarComponent implements OnInit, OnDestroy {
+
+  @Input() engineId = '';
+  @Input() domain = 'hotelfriend';
 
   className = "mainPage";
   @Output() showFilters: EventEmitter<any> = new EventEmitter();
@@ -209,7 +212,9 @@ export class SearchbarComponent implements OnInit, OnDestroy {
       this.openDatePickerSelector$.next(true);
       return;
     } else {
-
+      window.open(
+        `https://${this.domain}/engine/${this.engineId}?checkin=${this.filterState.checkin}&checkout=${this.filterState.checkout}&children=${this.filterState.children}&kidsAge=${this.filterState.kidsAge}`, '_blank' 
+      );
       // if (this.pageType === FilterType.bookingEnginePage) {
       //   this.searchBookingEngine.emit({ checkin: this.filterState.checkin, checkout: this.filterState.checkout, adults: this.filterState.adults, children: this.filterState.children, kidsAge: this.filterState.kidsAge });
       // } else {
